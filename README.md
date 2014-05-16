@@ -3,6 +3,15 @@ Statamic-Loop
 
 Loop stuff.
 
+## Parameters
+
+* `times`: Number of times to loop.
+
+## Variables
+
+* `count`: The number of the iteration.  
+* `index`: The zero-based count.
+
 
 ## Examples
 

@@ -1,16 +1,23 @@
 Statamic-Loop
 =============
 
-Loop stuff.
+> Loop stuff.
+
+Loop over something n times or between a range.
 
 ## Parameters
 
+* `from`: Where to begin the loop. Defaults to `1`.
 * `times`: Number of times to loop.
+* `to`: Where to end the loop.
+
+Use either `times` or `to`. Do not use both.
 
 ## Variables
 
-* `count`: The number of the iteration.  
-* `index`: The zero-based count.
+* `value`: The current value of the loop.
+* `index`: The number of the iteration.  
+* `zero_index`: The zero-based index.
 
 
 ## Examples
@@ -19,7 +26,7 @@ Loop stuff.
 
 ~~~
 {{ loop times="10" }}
-  {{ count }}
+  {{ value }}
 {{ /loop }}
 ~~~
 
@@ -34,11 +41,21 @@ Loop stuff.
 
 {{ entries:pagination folder="calendar" limit="10" }}
 	{{ loop times="{ total_pages }" }}
-		{{ if count == current_page }}
-			{{ count }}
+		{{ if index == current_page }}
+			{{ index }}
 		{{ else }}
-			<a href="{{ url }}?page={{ count }}">{{ count }}</a>
+			<a href="{{ url }}?page={{ index }}">{{ index }}</a>
 		{{ endif }}
 	{{ /loop }}
 {{ /entries:pagination }}
+~~~
+
+### Year selection
+
+~~~
+<select name="year">
+{{ loop from="1995" to="2015" }}
+  <option value="{{ value }}">{{ value }}</option>
+{{ /loop }}
+</select>
 ~~~

@@ -8,14 +8,18 @@ class Plugin_loop extends Plugin
 	 */
 	public function index()
 	{
-		// Number of times to loop
-		$times = $this->fetchParam('times', 1);
+		// Parameters
+		$from  = $this->fetchParam('from', 1);
+		$to    = $this->fetchParam('to', 1) + 1;
+		$times = $this->fetchParam('times');
+		
+		// Determine end point
+		$end = ($times) ? $from + $times : $to;
 
 		// Loop!
-		for ($i=0; $i < $times; $i++) {
+		for ($i = $from; $i < $end; $i++) {
 			$vars[] = array(
-				'index' => $i,
-				'count' => $i+1
+				'value' => $i
 			);
 		}
 

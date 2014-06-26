@@ -14,7 +14,7 @@ class Plugin_loop extends Plugin
 		$times = $this->fetchParam('times');
 		
 		// Determine end point
-		$end = ($times) ? $from + $times : $to;
+		$end = ($times) ? $from + $times : $to + 1;
 
 		// Loop!
 		for ($i = $from; $i < $end; $i++) {

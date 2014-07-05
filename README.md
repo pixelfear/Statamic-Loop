@@ -5,8 +5,11 @@ Statamic-Loop
 
 Loop over something n times or between a range.
 
-## Parameters
+## Installation
+1. Download the zip file (or clone via git) and unzip it or clone the repo into /_add-ons/.
+2. Change the folder name from `Statamic-Loop` to `loop`.
 
+## Parameters
 * `from`: Where to begin the loop. Defaults to `1`.
 * `times`: Number of times to loop.
 * `to`: Where to end the loop.
